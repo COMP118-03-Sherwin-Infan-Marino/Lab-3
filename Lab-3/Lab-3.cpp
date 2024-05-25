@@ -19,12 +19,13 @@
 #include<cstdlib>
 #include<ctime>
 using namespace std;
-
+const int ROWS = 10;
+const int COLS = 2;
 // Function prototypes
 int printMenu();
 void fillInArray(int[], const int);
-void multArrays(const int[], const int[], int[], const int);
-void displayArray(const int[], const int);
+void multArrays(const int[], const int[], int[ROWS][COLS], const int);
+void displayArray(const int[ROWS][COLS], const int);
 int sumOddArray(const int[], const int);
 bool isAllPositive(const int[], const int);
 void avgOddArray(const int[], const int, int&);
@@ -41,7 +42,7 @@ int main() {
 	// Initialize array price
 	int price[SIZE] = { 12, 4, 8, 1, 17, 2, 4, 2, 9, 1 };
 	// Declare array quantity and total
-	int quantity[SIZE], total[SIZE];
+	int quantity[SIZE]{0}, total[ROWS][COLS]{0};
 
 	for (int i = 0; i < SIZE; i++)
 	{
@@ -145,13 +146,16 @@ void fillInArray(int arr[], const int size) {
  * @param size The size of the arrays.
  * @param arrTotal The product of corresponding arrDest and arrSource.
  */
-void multArrays(const int arrDest[], const int arrSource[], int arrTotal[], const int size) {
+void multArrays(const int arrDest[], const int arrSource[], int arrTotal[ROWS][COLS], const int size) {
 	assert(size > 0);
 	double VAT = 0.0;
 
 	for (int i = 0; i < size; ++i) {
 		VAT = (arrDest[i] + arrSource[i]) * 0.21;
-		arrTotal[i] = (arrDest[i] * arrSource[i])+VAT;
+		arrTotal[i][1] = (arrDest[i] * arrSource[i]) + VAT;
+	}
+	for (int i = 0; i < size; ++i) {
+		arrTotal[i][0] = (arrDest[i] * arrSource[i]);
 	}
 }
 
@@ -163,12 +167,17 @@ void multArrays(const int arrDest[], const int arrSource[], int arrTotal[], cons
  * @param ar The array containing the values
  * @param size The size of the array.
  */
-void displayArray(const int arr[], const int size) {
+void displayArray(const int arr[ROWS][COLS], const int size) {
 	int sum=0;
 
 	for (int i = 0; i < size; ++i) {
-		cout << "\nValue at " << i << ": " << arr[i];
-		sum += arr[i];
+		
+		for (int j = 0; j < 2; j++)
+		{
+			cout << "\nValue at " << i << ": " << arr[i][j];
+			sum += arr[i][j];
+		}
+		cout << '/n';
 	}
 
 	cout << "\nThe total is: " << sum;
