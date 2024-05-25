@@ -63,7 +63,10 @@ int main() {
 			cout<<"The sum of odd numbers are:"<<sumOddArray(quantity, SIZE);
 			break;
 		case 5:
-			isAllPositive(quantity, SIZE);
+			if (isAllPositive(quantity, SIZE) == 0)
+				cout << "All the values are not positive";
+			else
+				cout << "All the values are positive";
 			break;
 		case 6:
 			avgOddArray(quantity, SIZE, avg);
@@ -181,13 +184,30 @@ int sumOddArray(const int arr[], const int size) {
 	return sum;
 }
 
-// If all the values in the array are positive return true
+/**
+ * <code>isAllPositive</code> If all the values in the array are positive return true
+ * <BR>
+ * @param arr The array containing the values
+ * @param size The size of the array.
+ */
+
 bool isAllPositive(const int arr[], const int size) {
-	
-	return 0;
+	for (int i = 0; i < size; i++)
+	{
+		if (arr[i] < 0)
+			return 0;
+	}
+	return 1;
 }
 
-// Finds the average of all the odd numbers in the array and stores this in the last argument
+/**
+ * <code>avgOddArray</code> Finds the average of all the odd numbers in the array and stores this in the last argument
+ * <BR>
+ * @param arr The array containing the values
+ * @param size The size of the array.
+ * @param avgOdd The odd average.
+ */
+
 void avgOddArray(const int arr[], const int size, int& avgOdd) {
 	int sum = 0;
 	for (int i = 0; i < size; i++)
