@@ -148,7 +148,7 @@ void fillInArray(int arr[], const int size) {
  */
 void multArrays(const int arrDest[], const int arrSource[], int arrTotal[ROWS][COLS], const int size) {
 	assert(size > 0);
-	double VAT = 0.0;
+	int VAT = 0;
 
 	for (int i = 0; i < size; ++i) {
 		VAT = (arrDest[i] + arrSource[i]) * 0.21;
@@ -174,10 +174,10 @@ void displayArray(const int arr[ROWS][COLS], const int size) {
 		
 		for (int j = 0; j < 2; j++)
 		{
-			cout << "\nValue at " << i << ": " << arr[i][j];
+			cout << "Value at " << i <<","<<j << ": " << arr[i][j]<<" ";
 			sum += arr[i][j];
 		}
-		cout << '/n';
+		cout << endl;
 	}
 
 	cout << "\nThe total is: " << sum;
