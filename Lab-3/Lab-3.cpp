@@ -33,7 +33,7 @@ void avgOddArray(const int[], const int, int&);
  * @return Returns 0 if success, any other value otherwise.
  */
 int main() {
-	int choice;
+	int choice,avg=0;
 	const int SIZE = 10;
 
 	// Initialize array price
@@ -60,12 +60,21 @@ int main() {
 			break;
 			// Exit
 		case 4:
-			// No code needed
+			sumOddArray(quantity, SIZE);
+			break;
+		case 5:
+			isAllPositive(quantity, SIZE);
+			break;
+		case 6:
+
+			break;
+		case 7:
+			avgOddArray(quantity, SIZE, avg);
 			break;
 		default:
 			assert(true);
 		}
-	} while (choice != 4);
+	} while (choice != 7);
 
 	cout << "\nHave a nice day:)" << endl;
 	return 0;
@@ -85,15 +94,18 @@ int printMenu() {
 		cout << "\n1) Enter quantity";
 		cout << "\n2) Calculate total";
 		cout << "\n3) Print total";
-		cout << "\n4) Exit";
+		cout<< "\n4) Sums the odd numbers";
+		cout << "\n5) Checks If all the values in the array are positive";
+		cout << "\n6) Finds the average of all the odd numbers";
+		cout << "\n7) Exit";
 
 		cout << "\nEnter the choice: ";
 		cin >> choice;
 
-		if (choice < 1 || choice > 4) {
+		if (choice < 1 || choice > 7) {
 			cout << "\nWrong choice, try again.";
 		}
-	} while (choice < 1 || choice > 5);
+	} while (choice < 1 || choice > 8);
 	return choice;
 }
 
@@ -152,17 +164,17 @@ void displayArray(const int arr[], const int size) {
 
 // Sums the odd numbers in the array and returns the result
 int sumOddArray(const int arr[], const int size) {
-	//@TODO: You will need to complete this. Including makeing the appropriate comment header
+	
 	return 0;
 }
 
 // If all the values in the array are positive return true
 bool isAllPositive(const int arr[], const int size) {
-	//@TODO: You will need to complete this. Including makeing the appropriate comment header
+	
 	return 0;
 }
 
 // Finds the average of all the odd numbers in the array and stores this in the last argument
 void avgOddArray(const int arr[], const int size, int& avgOdd) {
-	//@TODO: You will need to complete this. Including makeing the appropriate comment header
+	
 }
