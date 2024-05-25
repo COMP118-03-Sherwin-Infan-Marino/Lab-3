@@ -60,7 +60,7 @@ int main() {
 			break;
 			// Exit
 		case 4:
-			sumOddArray(quantity, SIZE);
+			cout<<"The sum of odd numbers are :"<<sumOddArray(quantity, SIZE);
 			break;
 		case 5:
 			isAllPositive(quantity, SIZE);
@@ -161,11 +161,23 @@ void displayArray(const int arr[], const int size) {
 
 	cout << "\nThe total is: " << sum;
 }
+/**
+ * <code>sumOddArray</code> Sums the odd numbers in the array and returns the result
+ * <BR>
+ * @param arr The array containing the values
+ * @param size The size of the array.
+ */
 
-// Sums the odd numbers in the array and returns the result
 int sumOddArray(const int arr[], const int size) {
-	
-	return 0;
+	int sum = 0;
+	for (int i = 0; i < size; i++)
+	{
+		if (arr[i] % 2 != 0)
+		{
+			sum = sum + arr[i];
+		}
+	}
+	return sum;
 }
 
 // If all the values in the array are positive return true
