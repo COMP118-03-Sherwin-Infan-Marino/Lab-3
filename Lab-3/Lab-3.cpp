@@ -16,6 +16,8 @@
 
 #include <iostream>
 #include <cassert>
+#include<cstdlib>
+#include<ctime>
 using namespace std;
 
 // Function prototypes
@@ -35,12 +37,16 @@ void avgOddArray(const int[], const int, int&);
 int main() {
 	int choice,avg=0;
 	const int SIZE = 10;
-
+	srand(time(NULL));
 	// Initialize array price
 	int price[SIZE] = { 12, 4, 8, 1, 17, 2, 4, 2, 9, 1 };
 	// Declare array quantity and total
 	int quantity[SIZE], total[SIZE];
 
+	for (int i = 0; i < SIZE; i++)
+	{
+		price[i]= rand() % 100;
+	}
 	// Interactive menu
 	do {
 		choice = printMenu();
