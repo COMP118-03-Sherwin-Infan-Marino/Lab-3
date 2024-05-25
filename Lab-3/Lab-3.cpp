@@ -118,15 +118,16 @@ void fillInArray(int arr[], const int size) {
  * to the corresponding value at the destination array. NOTE: precondition
  * is that the arrays have the same size.
  * <BR>
- * @param arrSource The array containing the destination elements.
- * @param arrDest The array containing the source elements.
+ * @param arrSource The array containing the source elements.
+ * @param arrDest The array containing the destination elements.
  * @param size The size of the arrays.
+ * @param arrTotal The product of corresponding arrDest and arrSource.
  */
-void multArrays(const int arrQuantity[], const int arrPrice[], int arrTotal[], const int size) {
+void multArrays(const int arrDest[], const int arrSource[], int arrTotal[], const int size) {
 	assert(size > 0);
 
 	for (int i = 0; i < size; ++i) {
-		arrTotal[i] = arrQuantity[i] * arrPrice[i];
+		arrTotal[i] = arrDest[i] * arrSource[i];
 	}
 }
 
